@@ -1,3 +1,81 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+
+	<div *ngIf="identity" class="navigation col-xs-3">
+
+		<h1>
+		  {{title}}
+		</h1>
+
+		<div class="col-xs-9">
+
+			<p>Estas logueado</p>
+
+		</div>
+
+	</div>
+	
+	<div class="row">
+
+		<div  *ngIf="!identity" class="no-identity">
+		
+		<div class="col-xs-12">
+
+			<h2>Inicia sessión</h2>
+
+			<form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-7">
+
+				<p>
+					<label>Correo electrónico:</label>
+					<input type="text" #email="ngModel" name="email" [(ngModel)]="user.email" class="form-control" required>
+					<span *ngIf="!email.valid && email.touched">
+						Email obligatorio
+					</span>
+				</p>
+
+				<p>
+					<label>Contraseña:</label>
+					<input type="password" #password="ngModel" name="password" [(ngModel)]="user.password" class="form-control" required>
+				</p>
+
+				<input type="submit" value="Entrar" class="btn btn-primary">
+
+			</form>
+
+		</div>
+<br>
+<br>
+		<div class="col-xs-12">
+
+			<h2>Regístrate</h2>
+
+			<form  class="col-md-7">
+
+				<p>
+					<label>Nombre:</label>
+					<input type="text" class="form-control" required>
+				</p>
+
+				<p>
+					<label>Apellidos:</label>
+					<input type="text" class="form-control" required>
+				</p>
+
+				<p>
+					<label>Correo electrónico:</label>
+					<input type="text" class="form-control" required>
+				</p>
+
+				<p>
+					<label>Contraseña:</label>
+					<input type="password" class="form-control" required>
+				</p>
+
+				<input type="submit" value="Registrarse" class="btn btn-primary">
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>
