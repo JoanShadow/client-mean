@@ -29,26 +29,24 @@ export class AppComponent implements OnInit {
 		this._userService.signUp(this.user).subscribe(response => {
 			let identity = response.user;
 			this.identity = identity;
-
+			//console.log(response);
 			if(!this.identity._id) {
 				alert('El usuario no está correctamente identificado');
 			}else {
 				// Crear elemento en el localstorage para tener al usuario en sessión
 
 				// Conseguir el token para enviarselo a cada petición http
-
-				this._userService.signUp(this.user, 'true').subscribe(response => {
-					let token = response.user;
+					this._userService.signUp(this.user, 'true').subscribe(response => {
+					let token = response.token;
 					this.token = token;
-
+			
 					if(this.token.length <= 0) {
-						alert('El token no se ha generado correctamente');
+						alert('El token no se ha generado');
 					}else {
 						// Crear elemento en el localstorage para tener el token disponible
 
 						console.log(token);
 						console.log(identity);
-
 					}
 				},
 				error => {
@@ -59,9 +57,10 @@ export class AppComponent implements OnInit {
 						this.errorMessage = body.message;
 						console.log(error);
 					}
-				});
-			}
-		},
+			});
+		}
+	},
+		
 		error => {
 			var errorMessage = <any>error;
 
