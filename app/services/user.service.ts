@@ -8,6 +8,8 @@ import { GLOBAL } from './global';
 export class UserService {
 
 	public url: string;
+	public identity : string;
+	public token : string;
 
 	constructor(private _http: Http) {
 		this.url = GLOBAL.url;
@@ -23,6 +25,35 @@ export class UserService {
 
 		let headers = new Headers({'Content-Type':'application/json'});
 
-		return this._http.post(this.url+'login', params, {headers: headers}).map(res =>  res.json());
+		return this._http.post(this.url+'login', params, {headers: headers}).map(res => res.json());
+	}
+
+	register(user_to_register) {
+		let params = JSON.stringify(user_to_register);
+		let headers = new Headers({'Content-Type':'application/json'});
+
+		return this._http.post(this.url+'register', params, {headers: headers}).map(res => res.json());
+	}
+
+	getIdentity() {
+		let identity = JSON.parse(localStorage.getItem('identity'));
+
+		if(identity != 'undefined') {
+			this.identity = identity;
+		}else {
+			this.identity = null;
+		}
+
+		return this.identity;
+	}
+
+	getToken() {
+		let token = localStorage.getItem('token');
+
+		if(token != 'undefined') {
+			this.token = token;
+		}else {
+			this.token = null;
+		}
 	}
 }

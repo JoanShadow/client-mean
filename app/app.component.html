@@ -5,7 +5,13 @@
 		<h1>
 		  {{title}}
 		</h1>
-
+		<span>
+			<p>{{identity.name}}</p>
+			<p>{{identity.surname}}</p> 
+		</span>
+		<span class="btn btn-warning" (click)="logout()">
+			Cerrar sessión
+		</span>
 		<div class="col-xs-9">
 
 			<p>Estas logueado</p>
@@ -21,11 +27,13 @@
 		<div class="col-xs-12">
 
 			<h2>Inicia sessión</h2>
+			
 			<div *ngIf="errorMessage">
 				<div class="alert alert-warning">
   					<strong>Error</strong> {{errorMessage}}
 				</div>
 			</div>
+
 			<form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-7">
 
 				<p>
@@ -51,27 +59,43 @@
 		<div class="col-xs-12">
 
 			<h2>Regístrate</h2>
+			
+			<div *ngIf="alertRegister">
+				<div class="alert alert-warning">
+  					<strong>Error</strong> {{alertRegister}}
+				</div>
+			</div>
 
-			<form  class="col-md-7">
+			<div *ngIf="succesRegister">
+				<div class="alert alert-success">
+  					<strong>|></strong> {{succesRegister}}
+				</div>
+			</div>
+
+			<form #registerForm="ngForm" (ngSubmit)="onSubmitRegister()" class="col-md-7">
 
 				<p>
 					<label>Nombre:</label>
-					<input type="text" class="form-control" required>
+					<input type="text" name="name" #name="ngModel" class="form-control" [(ngModel)]="user_register.name" required>
+					<span *ngIf="!name.valid && name.touched">El nombre és obligatorio</span>
 				</p>
 
 				<p>
 					<label>Apellidos:</label>
-					<input type="text" class="form-control" required>
+					<input type="text" name="surname" #surname="ngModel" class="form-control" [(ngModel)]="user_register.surname" required>
+					<span *ngIf="!surname.valid && surname.touched">El apellido és obligatorio</span>
 				</p>
 
 				<p>
 					<label>Correo electrónico:</label>
-					<input type="text" class="form-control" required>
+					<input type="text" name="emailR" #emailR="ngModel" class="form-control" [(ngModel)]="user_register.email" required>
+					<span *ngIf="!emailR.valid && emailR.touched">El email és obligatorio</span>
 				</p>
 
 				<p>
 					<label>Contraseña:</label>
-					<input type="password" class="form-control" required>
+					<input type="password" name="password" #password="ngModel" class="form-control" [(ngModel)]="user_register.password" required>
+					<span *ngIf="!password.valid && password.touched">La contraseña és obligatoria</span>
 				</p>
 
 				<input type="submit" value="Registrarse" class="btn btn-primary">
