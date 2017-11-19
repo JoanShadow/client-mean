@@ -1,22 +1,58 @@
 <div class="container">
 
-	<div *ngIf="identity" class="navigation col-xs-3">
-
+	<div *ngIf="identity" class="navigation col-xs-3 col-md-1">
 		<h1>
 		  {{title}}
 		</h1>
-		<span>
-			<p>{{identity.name}}</p>
-			<p>{{identity.surname}}</p> 
-		</span>
+
+		<nav id="navigation">
+
+			<span>
+				Bienvenido <strong>{{identity.name}}</strong>
+			</span>
+<br>
+<br>
+			<a [routerLink]="['/mis-datos']">
+				<span class="glyphicon glyphicon-cog" aria-hidden="true">
+					Configuración
+				</span>
+			</a>
+<br>
+			<a href="#" >
+				<span class="glyphicon glyphicon-search" aria-hidden="true">
+					Buscar
+				</span>
+			</a>
+<br>
+			<a href="#">
+				<span class="glyphicon glyphicon-user" aria-hidden="true">
+					Artistas
+				</span>
+			</a>
+<br>
+			<a href="#">
+				<span class="glyphicon glyphicon-book" aria-hidden="true">
+					Albums
+				</span>
+			</a>
+<br>
+			<a href="#">
+				<span class="glyphicon glyphicon-music" aria-hidden="true">
+					Canciones
+				</span>
+			</a>
+
+		</nav>
+
+		<div>
+
+			<router-outlet></router-outlet>
+
+		</div>
+
 		<span class="btn btn-warning" (click)="logout()">
 			Cerrar sessión
 		</span>
-		<div class="col-xs-9">
-
-			<p>Estas logueado</p>
-
-		</div>
 
 	</div>
 	
