@@ -65,5 +65,7 @@ export class UserService {
 		}else {
 			this.token = null;
 		}
+
+		return this.token;
 	}
 }
