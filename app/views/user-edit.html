@@ -4,17 +4,15 @@
 	
 	<div *ngIf="alertMessage">
 		<div class="alert alert-warning">
-				<strong>Error</strong> {{alertMessage}}
+				<strong>|></strong> {{alertMessage}}
 		</div>
 	</div>
 
-<!--
-	<div *ngIf="succesRegister">
-		<div class="alert alert-success">
-				<strong>|></strong> {{succesRegister}}
+	<div *ngIf="succesUpdate">
+		<div class="alert alert-succes">
+				<strong>|></strong> {{succesUpdate}}
 		</div>
 	</div>
--->
 
 	<form #userUpdateForm="ngForm" (ngSubmit)="onSubmit()" class="col-xs-7" style="padding-left: 0px">
 
