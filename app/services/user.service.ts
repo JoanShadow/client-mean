@@ -7,9 +7,9 @@ import { GLOBAL } from './global';
 @Injectable() //Inyeccion de dependencias Injectable
 export class UserService {
 
-	public url: string;
-	public identity : string;
-	public token : string;
+	public url;
+	public identity;
+	public token;
 
 	constructor(private _http: Http) {
 		this.url = GLOBAL.url;
@@ -35,7 +35,7 @@ export class UserService {
 		return this._http.post(this.url+'register', params, {headers: headers}).map(res => res.json());
 	}
 
-	update_user(user_to_update) {
+	updateUser(user_to_update) {
 		let params = JSON.stringify(user_to_update);
 		let headers = new Headers({
 			'Content-Type':'application/json',

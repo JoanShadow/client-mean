@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 	public user: User;
 	public user_register: User;
 	public identity; // = true;
-	public token:;
+	public token;
 	public errorMessage: string;
 	public alertRegister: string;
 	public succesRegister: string;
