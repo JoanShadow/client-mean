@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
+import { GLOBAL } from '../services/global';
 
 @Component({
 	selector: 'user-edit',
@@ -15,6 +16,7 @@ export class UserEditComponent implements OnInit{
 	public token;
 	public alertMessage;
 	public succesUpdate;
+	public url: string = GLOBAL.url;
 
 	constructor(private _userService: UserService) {
 		this.titulo = 'Actualizar mis datos';
@@ -37,8 +39,23 @@ export class UserEditComponent implements OnInit{
 				//this.user = response.user;
 				localStorage.setItem("identity", JSON.stringify(this.user));
 				document.getElementById("identity_name").innerHTML = this.user.name;
-				this.succesUpdate = "El usuario se ha actualizado";
 			}
+			if(!this.filesToUpload){
+				//
+			}else {
+				this.makeFileRequest(this.url+'upload-image-user/'+this.user._id, [],
+				 this.filesToUpload).then((result:any) => {
+				 	this.user.image = result.img;
+				 	localStorage.setItem('identity', JSON.stringify(this.user));
+
+				 	console.log(this.user);
+
+				 	let image_path = this.url + 'get-image-user/' + this.user.image;
+				 	document.getElementById("image-user").setAttribute('src', image_path);
+				 	document.getElementById("image-user-edit").setAttribute('src', image_path);
+				});
+			}
+			this.succesUpdate = "Datos actualizados correctamente";
 		},
 		error => {
 			var errorMessage = <any>error;
@@ -54,8 +71,8 @@ export class UserEditComponent implements OnInit{
 	public filesToUpload: Array<File>;
 
 	fileChangeEvent(fileInput:any) {
-
 		this.filesToUpload = <Array<File>>fileInput.target.files; //target.files archivos seleccionados en el input
+		console.log(this.filesToUpload);
 	}
 
 	makeFileRequest(url:string, params: Array<string>, files: Array<File>) {
@@ -77,10 +94,17 @@ export class UserEditComponent implements OnInit{
 
 			xhr.onreadystatechange = function() {
 				if(xhr.readyState == 4) {
-					resolve(JSON.parse(xhr.response));
-				}else {
-					reject(xhr.response); 
+					if(xhr.status == 200) {
+						resolve(JSON.parse(xhr.response));
+					}else {
+						reject(xhr.response); 
+					}
 				}
 			}
+
+			xhr.open('POST', url, true);
+			xhr.setRequestHeader('Authorization', token);
+			xhr.send(formData);
 		});
+	}
 }

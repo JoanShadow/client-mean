@@ -1,0 +1,145 @@
+/*** CSS ***/
+/***  ELEM ***/
+
+html {
+
+	height: 100%;
+}
+
+body {
+
+	overflow-x:hidden;
+	background: #DCDCCB;
+	padding: 1%;
+	margin: 0px;
+	height: 100%;
+}
+
+/*** //\\ ***/
+/*** ID ***/
+
+a#cont_title {
+	text-decoration:none;   
+}
+
+div#router_outlet {
+
+	padding: 0% !important;
+}
+
+input#btn_search_img {
+
+	text-decoration:none;   
+	width: 80%;
+	color: transparent;
+}
+nav#navigation {
+
+	padding: 0% !important;
+}
+
+span#btn_logout {
+	
+	padding-top: 5%;
+	padding-right: 6%;
+	padding-bottom: 5%;
+	padding-left: 6%;
+}
+
+/*** //\\ ***/
+/***  CLASS ***/
+
+.cont_form_update {
+
+	padding: 0%;
+	margin: 0%;
+}
+
+.image_user_nav {
+
+	width: 100%;
+	height: auto; 
+	margin-left: auto; 
+	margin-right: auto; 
+	display: block; 
+	padding: 5%;
+}
+
+.nav_elem_musify {
+
+	text-decoration:none;
+	display: inline !important;   	
+}
+
+.no-identity {
+
+	height: 100% !important; 
+	width: 100% !important
+}
+
+.router_outlet {
+
+	padding: 0%;
+	margin: 0%;
+}
+
+.user_image {
+
+	width: 65%; 
+	height: auto; 
+	background: #A1A1A1;
+	margin: 0% !important;
+}
+
+.user_image_update {
+
+	width: 20%; 
+	height: auto;
+}
+
+.user_update_form {
+
+	padding-left: 0px;
+}
+
+.user_update_form_inputs {
+
+	width: auto;
+}
+
+/*** //\\ ***/
+/*** BOOTSTRAP ***/
+
+div.container-fluid {
+
+		padding: 0% !important;
+}
+
+/*** //\\ ***/
+/*** MEDIA ***/
+
+@media screen and (min-width: 360px) and (min-height: 650px) {
+    p.input_user_update {
+        width: 95%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 414px) and (min-height: 736px) {
+    p.input_user_update {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    
+	body {
+		padding-left: 4%; 
+	}
+
+    p.input_user_update {
+        width: 65%;
+        height: auto;
+    }
+}
