@@ -48,9 +48,9 @@
 
 		</p>
 
-		<div class="image_for_edit">
+		<div class="image_for_edit" *ngIf="user.img && user.img != 'null'">
 
-			<img id="image-user-edit" src="{{url + 'get-image-user/' + user.img}}" *ngIf="user.img && user.img != 'null'" class="user_image_update" />
+			<img id="image-user-edit" src="{{url + 'get-image-user/' + identity.img}}" class="user_image_update" />
 
 		</div>
 		
@@ -61,10 +61,8 @@
 			<input type="file" id="btn_search_img" (change)="fileChangeEvent($event)">
 			
 		</p>
-		
-<br>
+
 		<input type="submit" value="Guardar" class="btn btn-primary">
-<br>
-<br>
+
 	</form>
 </div>

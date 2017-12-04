@@ -16,67 +16,75 @@
 
 		<nav id="navigation" class="col-xs-4">
 			
-			<div class="user_image">
+			<div id="elems_nav">
 
-				<img id="image-user" class="image_user_nav" src="{{url + 'get-image-user/' + identity.img}}"/>
+				<a href="#" class="nav_elem_musify">
+
+				<span class="glyphicon glyphicon-search" aria-hidden="true">
+					
+				</span>
+				Buscar
+			</a>
+
+			<a class="nav_elem_musify" [routerLink]="['/artists']" [routerLinkActive]="['actived']">
+
+				<span class="glyphicon glyphicon-user" aria-hidden="true">
+					
+				</span>
+				Artistas
+			</a>
+
+			<a class="nav_elem_musify">
+
+				<span class="glyphicon glyphicon-book" aria-hidden="true">
+					
+				</span>
+				Albums
+			</a>
+
+			<a class="nav_elem_musify" style="margin-bottom: 10%;">
+
+				<span class="glyphicon glyphicon-music" aria-hidden="true">
+					
+				</span>
+				Audios
+			</a>
+
+			</div>
+			
+			<div id="user-logged">
+
+				<div class="user_image">
+
+					<img id="image-user" class="image_user_nav" src="{{url + 'get-image-user/' + identity.img}}"/>
+
+				</div>
+
+				<span id="welcome_user">
+
+					<span id="identity_name"><strong>{{identity.name}}</strong></span>
+
+				</span>
+<br>
+<br>
+				<a [routerLink]="['/mis-datos']" [routerLinkActive]="['actived']" class="nav_elem_musify">
+
+					<span class="glyphicon glyphicon-cog" aria-hidden="true">
+						
+					</span>
+					Config
+				</a>
+
+
+				<span id="btn_logout" class="btn btn-warning" (click)="logout()">
+					<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+				</span>
 
 			</div>
 
-			<span>
-
-				Bienvenid@ <span id="identity_name"><strong>{{identity.name}}</strong></span>
-
-			</span>
-<br>
-<br>
-			<a [routerLink]="['/mis-datos']" class="nav_elem_musify">
-
-				<span class="glyphicon glyphicon-cog" aria-hidden="true">
-					Config
-				</span>
-
-			</a>
-<br>
-			<a href="#" class="nav_elem_musify">
-
-				<span class="glyphicon glyphicon-search" aria-hidden="true">
-					Buscar
-				</span>
-
-			</a>
-<br>
-			<a href="#" class="nav_elem_musify">
-
-				<span class="glyphicon glyphicon-user" aria-hidden="true">
-					Artistas
-				</span>
-
-			</a>
-<br>
-			<a href="#" class="nav_elem_musify">
-
-				<span class="glyphicon glyphicon-book" aria-hidden="true">
-					Albums
-				</span>
-
-			</a>
-<br>
-			<a href="#" class="nav_elem_musify">
-
-				<span class="glyphicon glyphicon-music" aria-hidden="true">
-					Audios
-				</span>
-
-			</a>
-<br>
-<br>
-			<span id="btn_logout" class="btn btn-warning" (click)="logout()">
-				<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-			</span>
-
 		</nav>
 
-		<div class="col-xs-8" id="router_outlet">
+		<div [class.hidden]="!identity" class="col-xs-8" id="router_outlet">
 
 			<router-outlet></router-outlet>
 
@@ -84,7 +92,7 @@
 
 	</div>
 	
-	<div class="row">
+	<div class="row" id="row_p">
 
 		<div  *ngIf="!identity" class="no-identity">
 		
@@ -129,8 +137,8 @@
 			</form>
 
 		</div>
-<br>
-<br>
+
+
 		<div class="col-xs-6">
 
 			<h2>Regístrate</h2>
