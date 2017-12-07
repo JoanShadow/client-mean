@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import { User } from './models/user';
 import { GLOBAL } from './services/global';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
 	public succesRegister: string;
 	public url: string = GLOBAL.url;
 
-	constructor(private _userService:UserService) {
+	constructor(private _userService:UserService, private _route: ActivatedRoute, private _router: Router,) {
 		this.user = new User('','','','','','ROLE_USER','');
 		this.user_register = new User('','','','','','ROLE_USER','');
 	}
@@ -29,8 +30,8 @@ export class AppComponent implements OnInit {
 		this.identity = this._userService.getIdentity();
 		this.token = this._userService.getToken();
 
-		//console.log(this.identity);
-		//console.log(this.token);
+		console.log(this.identity);
+		console.log(this.token);
 	} 
 
 	public onSubmit() {
@@ -79,7 +80,6 @@ export class AppComponent implements OnInit {
 				console.log(error);
 			}
 		});
-
 	}
 
 	logout() {
@@ -88,6 +88,7 @@ export class AppComponent implements OnInit {
 		localStorage.clear(); //Session destroy del localStorage
 		this.identity = null;
 		this.token = null;
+		this._router.navigate(['/'])
 	}
 
 	onSubmitRegister() {

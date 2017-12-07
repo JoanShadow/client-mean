@@ -30,6 +30,11 @@ a#cont_title {
 	font-size: 25px;   
 }
 
+div#cont_artist-add {
+	
+	padding-left: 5%;
+}
+
 div#elems_nav {
 
 	padding-bottom: 30%;
@@ -53,7 +58,6 @@ div#user-logged {
 input#btn_search_img {
 
 	text-decoration:none;   
-	width: 80%;
 	color: transparent;
 }
 
@@ -119,7 +123,7 @@ span#welcome_user {
 	margin-bottom: 25px;
 	display: block;
 	position: fixed;
-	z-index: 10;
+	z-index: 100;
 	padding-left: 2%;
 }
 
@@ -130,12 +134,18 @@ span#welcome_user {
 
 .image_user_nav {
 
-	width: 20mm;
-	height: 20mm;
+	width: 25mm;
+	height: 25mm;
 	display: inline; 
 	padding: 1%;
 	background: #1C1C1F;
 	border-radius: 100%;
+}
+
+.image_for_edit {
+
+	padding-top: 5%;
+	padding-bottom: 8%;
 }
 
 .nav_elem_musify {
@@ -193,6 +203,17 @@ div.container-fluid {
 
 }
 
+div.jumbotron {
+	
+	margin: 0%;
+	padding-left: 0px;
+	padding-top: 2%;
+	padding-right: 0%;
+	width: 80%;
+	position: relative;
+	left: 5%;
+}
+
 /*** //\\ ***/
 /*** MEDIA ***/
 
@@ -200,7 +221,7 @@ div.container-fluid {
    
    body{
 
-   	height: 80%;
+   		height: 80%;
    }
 
     p.input_user_update {
@@ -210,13 +231,13 @@ div.container-fluid {
 
     a#cont_title {
 
-	font-size: 18px;   
+		font-size: 18px;   
 	}
 
 	.image_user_nav {
 
-	width: 10mm;
-	height: 10mm;
+		width: 10mm;
+		height: 10mm;
 
 	}
 
@@ -226,7 +247,7 @@ div.container-fluid {
 	
 	body{
    	
-   	height: 70%;
+   		height: 70%;
    }
 
     p.input_user_update {
@@ -237,7 +258,7 @@ div.container-fluid {
 
     a#cont_title {
 
-	font-size: 20px;   
+		font-size: 20px;   
 	}
 
 }
@@ -259,7 +280,7 @@ div.container-fluid {
 
     a#cont_title {
 
-	font-size: 23px;   
+		font-size: 23px;   
 	}
 
 }
@@ -280,30 +301,54 @@ div.container-fluid {
 
   	a#cont_title {
 
-	font-size: 30px;   
+		font-size: 30px;   
 	}
+}
 
+@media screen and (min-width: 770px) and (max-width: 1023px) {
+    
+	body {
+		
+		height: 80%;
+		padding-left: 4%; 
+	}
 }
 
 @media screen and (min-width: 1024px) {
 	
 	body{
 
-		height: 35%;
+		height: 60%;
 	}
 
 	a#cont_title {
 
-	font-size: 36px;   
+		font-size: 36px;   
 	}
 
 	.image_user_nav {
-
-	width: 20mm;
-	height: 20mm;
+	
+		width: 20mm;
+		height: 20mm;
 	
 	}
 }
+
+@media screen and (min-width: 1025px) {
+	
+	body{
+
+		height: 90%;
+	}
+
+@media screen and (min-width: 1064px) {
+
+	body {
+
+		height: 100%;
+	}
+} 
+
  
 @media screen and (min-width: 200px) and (max-width: 600px) {
 
@@ -314,11 +359,3 @@ div.container-fluid {
 	}
 
 }
-
-@media screen and (min-width: 1064px) {
-
-	body {
-
-		height: 100%;
-	}
-} 

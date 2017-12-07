@@ -1,18 +1,17 @@
 import { ModuleWithProviders} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-//import user
+import { HomeComponent } from './components/home.component';
 import { UserEditComponent } from './components/user-edit.component';
-
-//import artist
 import { ArtistListComponent } from './components/artist-list.component';
+import { ArtistAddComponent } from './components/artist-add.component';
 
 const appRoutes: Routes = [
-	{path: '', redirectTo: '/artists', pathMatch: 'full'},
-	{path: '', component: ArtistListComponent},
+	{path: '', redirectTo: '', pathMatch: 'full', component: HomeComponent},
 	{path: 'artists/:page', component: ArtistListComponent},
+	{path: 'crear-artista', component: ArtistAddComponent},
 	{path: 'mis-datos', component: UserEditComponent},
-	{path: '**', component: ArtistListComponent}
+	{path: '**', component: HomeComponent}
 ];
 
 export const appRoutingProviders: any[] = [];
