@@ -30,9 +30,29 @@ a#cont_title {
 	font-size: 25px;   
 }
 
+div.image {
+
+	width: 100%;
+}
+
+div.image img {
+	
+	width: 25%;
+	height: auto;
+	overflow: hidden;
+	float: left;
+	margin-right: 10%;
+	margin-left: 2%;
+}
+
+div#cont_album-add {
+	
+	margin-left: 5%;
+}
+
 div#cont_artist-add {
 	
-	padding-left: 5%;
+	padding: 5%;
 }
 
 div#elems_nav {
@@ -95,7 +115,7 @@ span#btn_logout {
 	margin-top: 20%;
 }/* bottom: 0px; position: absolute; text-decoration: center*/
 
-span#welcome_user {
+span#identity_name {
 
 	font-size: 18px;
 }
@@ -106,6 +126,44 @@ span#welcome_user {
 .actived {
 
 	box-shadow: 4px 4px 4px #F8FF84;
+}
+
+.artist_box {
+
+	margin-left: 4%;
+}
+
+.artist-item {
+
+	width: 30%;
+	margin: 0px;
+	padding: 0px;
+	height: 40%;
+	border: 1px solid #444;
+	margin-left: 11%;
+}
+
+.artist_image {
+
+	width: 100%;
+	overflow: hidden;
+}
+
+.artist_name {
+
+	color: white;
+}
+
+.artist_details {
+
+	background: #222326;
+}
+
+.artists-list {
+
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
 }
 
 .cont_form_update {
@@ -247,7 +305,7 @@ div.jumbotron {
 	
 	body{
    	
-   		height: 70%;
+   		height: 105%;
    }
 
     p.input_user_update {
@@ -267,7 +325,7 @@ div.jumbotron {
    
    body{
    	
-   	height: 60%;
+   	height: 105%;
 
    }
 
@@ -289,7 +347,7 @@ div.jumbotron {
     
 	body {
 		
-		height: 50%;
+		height: 105%;
 		padding-left: 4%; 
 	}
 
@@ -309,7 +367,7 @@ div.jumbotron {
     
 	body {
 		
-		height: 80%;
+		height: 105%;
 		padding-left: 4%; 
 	}
 }
@@ -318,7 +376,7 @@ div.jumbotron {
 	
 	body{
 
-		height: 60%;
+		height: 105%;
 	}
 
 	a#cont_title {
@@ -338,14 +396,14 @@ div.jumbotron {
 	
 	body{
 
-		height: 90%;
+		height: 105%;
 	}
 
 @media screen and (min-width: 1064px) {
 
 	body {
 
-		height: 100%;
+		height: 105%;
 	}
 } 
 

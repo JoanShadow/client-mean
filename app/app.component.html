@@ -59,12 +59,12 @@
 					<img id="image-user" class="image_user_nav" src="{{url + 'get-image-user/' + identity.img}}"/>
 
 				</div>
+		
+					<span id="identity_name">
 
-				<span id="welcome_user">
+						<strong>{{identity.name}}</strong>
 
-					<span id="identity_name"><strong>{{identity.name}}</strong></span>
-
-				</span>
+					</span>		
 <br>
 <br>
 				<a [routerLink]="['/mis-datos']" [routerLinkActive]="['actived']" class="nav_elem_musify">
