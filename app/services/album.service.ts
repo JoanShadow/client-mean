@@ -13,6 +13,23 @@ export class AlbumService {
 	constructor(private _http: Http) {
 		this.url = GLOBAL.url;
 	}
+
+	getAlbums(token, artistId = null) {
+
+		let headers = new Headers({
+			'Content-Type': 'application/json',
+			'Authorization': token
+		});
+
+		let options = new RequestOptions({headers: headers});
+
+		if(artistId == null) {
+			return this._http.get(this.url + 'albums' , options).map(res => res.json());
+		}else {
+			return this._http.get(this.url + 'albums/' + artistId, options).map(res => res.json());
+		}
+	}
+
 	getAlbum(token, id: string) {
 
 		let headers = new Headers({
@@ -31,7 +48,7 @@ export class AlbumService {
 			'Authorization': token
 		});
 
-		return this._http.post(this.url + 'album', params, {headers: headers}).map(res => res.json());
+		return this._http.post(this.url + 'album/', params, {headers: headers}).map(res => res.json());
 	}	
 
 	editAlbum(token, id: string, album: Album) {
@@ -43,4 +60,16 @@ export class AlbumService {
 
 		return this._http.put(this.url + 'album/' + id, params, {headers: headers}).map(res => res.json());
 	}	
+
+	deleteAlbum(token, id: string) {
+
+		let headers = new Headers({
+			'Content-Type': 'application/json',
+			'Authorization': token
+		});
+
+		let options = new RequestOptions({headers: headers});
+		return this._http.delete(this.url + 'album/' + id, options).map(res => res.json());
+	}
+
 }

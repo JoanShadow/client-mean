@@ -33,7 +33,7 @@
 
 				</div>
 				
-				<div class="seguro" *ngIf="confirmado == artist._id">
+				<div class="seguro" *ngIf="confirmado == artist._id && identity.role == 'ROLE_ADMIN'">
 
 					<p class="alert alert-info">Confirma para borrar: </p>
 

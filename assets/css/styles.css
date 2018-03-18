@@ -10,7 +10,7 @@ html {
 }
 
 body {
-	
+
 	background: #F2F2F2;
 	height: 100%;
 	margin: 0.3%;
@@ -26,8 +26,8 @@ body {
 a#cont_title {
 
 	text-decoration:none;
-	color: #ddd; 
-	font-size: 25px;   
+	color: #ddd;
+	font-size: 25px;
 }
 
 div.image {
@@ -36,7 +36,7 @@ div.image {
 }
 
 div.image img {
-	
+
 	width: 25%;
 	height: auto;
 	overflow: hidden;
@@ -45,19 +45,26 @@ div.image img {
 	margin-left: 2%;
 }
 
-div#cont_album-add {
-	
+div#cont_album-add,
+div#cont_artist-add,
+div#cont_song-add{
+
 	margin-left: 5%;
 }
 
 div#cont_artist-add {
-	
+
 	padding: 5%;
 }
 
 div#elems_nav {
 
 	padding-bottom: 30%;
+}
+
+div#gallery-albums {
+
+	margin-top: 3%;
 }
 
 div#router_outlet {
@@ -71,13 +78,13 @@ div#row_p {
 }
 
 div#user-logged {
-	
+
 	border-top: 1px solid;
 }
 
 input#btn_search_img {
 
-	text-decoration:none;   
+	text-decoration:none;
 	color: transparent;
 }
 
@@ -107,7 +114,7 @@ nav#navigation span.glyphicon {
 }
 
 span#btn_logout {
-	
+
 	padding-top: 5%;
 	padding-right: 6%;
 	padding-bottom: 5%;
@@ -133,7 +140,7 @@ span#identity_name {
 	margin-left: 4%;
 }
 
-.artist-item {
+.artist-item, .album-item {
 
 	width: 30%;
 	margin: 0px;
@@ -143,23 +150,24 @@ span#identity_name {
 	margin-left: 11%;
 }
 
-.artist_image {
+.artist_image, .album_image {
 
 	width: 100%;
 	overflow: hidden;
 }
 
-.artist_name {
+.artist_name, .album_title {
 
 	color: white;
 }
 
-.artist_details {
+.artist_details, .album_details {
 
 	background: #222326;
+	padding: 10px
 }
 
-.artists-list {
+.artists-list, .albums-list {
 
 	margin: 0px;
 	padding: 0px;
@@ -194,7 +202,7 @@ span#identity_name {
 
 	width: 25mm;
 	height: 25mm;
-	display: inline; 
+	display: inline;
 	padding: 1%;
 	background: #1C1C1F;
 	border-radius: 100%;
@@ -210,15 +218,15 @@ span#identity_name {
 
 	text-decoration:none;
 	display: block;
-	color: #ddd; 
+	color: #ddd;
 	font-size: 15px;
-	margin-top: 5%;  
-	padding-bottom: 8%;	
+	margin-top: 5%;
+	padding-bottom: 8%;
 }
 
 .no-identity {
 
-	height: 100% !important; 
+	height: 100% !important;
 	width: 100% !important
 }
 
@@ -229,7 +237,7 @@ span#identity_name {
 }
 
 .user_image {
-	
+
 	margin-top: 10%;
 	background: #1C1C1F;
 	padding: 2%;
@@ -238,7 +246,7 @@ span#identity_name {
 
 .user_image_update {
 
-	width: 10%; 
+	width: 10%;
 	height: auto;
 }
 
@@ -262,7 +270,7 @@ div.container-fluid {
 }
 
 div.jumbotron {
-	
+
 	margin: 0%;
 	padding-left: 0px;
 	padding-top: 2%;
@@ -276,7 +284,7 @@ div.jumbotron {
 /*** MEDIA ***/
 
 @media screen and (min-width: 320px) {
-   
+
    body{
 
    		height: 80%;
@@ -289,7 +297,7 @@ div.jumbotron {
 
     a#cont_title {
 
-		font-size: 18px;   
+		font-size: 18px;
 	}
 
 	.image_user_nav {
@@ -302,9 +310,9 @@ div.jumbotron {
 }
 
 @media screen and (min-width: 360px) and (min-height: 650px) {
-	
+
 	body{
-   	
+
    		height: 105%;
    }
 
@@ -316,15 +324,15 @@ div.jumbotron {
 
     a#cont_title {
 
-		font-size: 20px;   
+		font-size: 20px;
 	}
 
 }
 
 @media screen and (min-width: 414px) and (min-height: 736px) {
-   
+
    body{
-   	
+
    	height: 105%;
 
    }
@@ -338,17 +346,17 @@ div.jumbotron {
 
     a#cont_title {
 
-		font-size: 23px;   
+		font-size: 23px;
 	}
 
 }
 
 @media screen and (min-width: 768px) {
-    
+
 	body {
-		
+
 		height: 105%;
-		padding-left: 4%; 
+		padding-left: 4%;
 	}
 
     p.input_user_update {
@@ -359,21 +367,21 @@ div.jumbotron {
 
   	a#cont_title {
 
-		font-size: 30px;   
+		font-size: 30px;
 	}
 }
 
 @media screen and (min-width: 770px) and (max-width: 1023px) {
-    
+
 	body {
-		
+
 		height: 105%;
-		padding-left: 4%; 
+		padding-left: 4%;
 	}
 }
 
 @media screen and (min-width: 1024px) {
-	
+
 	body{
 
 		height: 105%;
@@ -381,19 +389,19 @@ div.jumbotron {
 
 	a#cont_title {
 
-		font-size: 36px;   
+		font-size: 36px;
 	}
 
 	.image_user_nav {
-	
+
 		width: 20mm;
 		height: 20mm;
-	
+
 	}
 }
 
 @media screen and (min-width: 1025px) {
-	
+
 	body{
 
 		height: 105%;
@@ -405,15 +413,15 @@ div.jumbotron {
 
 		height: 105%;
 	}
-} 
+}
 
- 
+
 @media screen and (min-width: 200px) and (max-width: 600px) {
 
-	nav#navigation {
+  nav#navigation {
 
-		padding-top: 16%;
-		padding-bottom: 8%;
-	}
+    padding-top: 16%;
+    padding-bottom: 8%;
+  }
 
 }
